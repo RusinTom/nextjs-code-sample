@@ -21,6 +21,14 @@
   --search-bar-bg: 31 31 31;
 }
 @layer base {
+  .focus-active {
+    @apply rounded-[10px] border-2 border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
+  }
+
+  .nav-link-base {
+    @apply focus-active py-1 px-4 text-white hover:border-red;
+  }
+
   .h0 {
     @apply font-primary text-3xl font-bold md:text-5xl;
   }
@@ -50,13 +58,8 @@
     @apply font-primary text-sm md:text-base;
   }
 
-  .layout {
-    max-width: 68.75rem;
-    @apply mx-auto w-11/12;
-  }
-
-  .min-h-main {
-    @apply min-h-[calc(100vh-56px)];
+  a {
+    @apply text-[15px] font-extrabold leading-5;
   }
 }
 

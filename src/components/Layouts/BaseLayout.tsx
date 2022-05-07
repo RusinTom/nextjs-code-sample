@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Footer } from '@/components/Footer';
-import { Header } from '@/components/Header';
+import { Footer } from '@/components/Layouts/MainFooter/Footer';
+import { MainHeader } from '@/components/Layouts/MainHeader/MainHeader';
 
 type Props = {
   children?: React.ReactNode;
@@ -10,7 +10,7 @@ type Props = {
 export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <Header />
+      <MainHeader />
       <main>{children}</main>
       <Footer />
     </>

@@ -24,8 +24,11 @@ module.exports = {
         grayPlaceholder: withOpacityValue('--gray-placeholder'),
         gray: withOpacityValue('--gray'),
         grayBg: 'var(--gray-bg)',
-        searchBarBg: withOpacityValue('--gray-bg'),
+        searchBarBg: withOpacityValue('--search-bar-bg'),
         dark: '#222222',
+      },
+      container: {
+        center: true,
       },
     },
   },
