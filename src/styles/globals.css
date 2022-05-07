@@ -9,16 +9,16 @@
     rgba(58, 39, 63, 0.6) 47.55%,
     #181818 90.7%
   );
-  --red: #fc364c;
-  --black: #0d0d0d;
-  --icon-white: #f3f3f3;
-  --white-text: #f7f7f7;
-  --white: #ffffff;
-  --gray-placeholder: #a2a2a2;
-  --gray: #8e8b8f;
+  --red: 252 54 76;
+  --black: 13 13 13;
+  --icon-white: 243 243 243;
+  --white-text: 247 247 247;
+  --white: 255 255 255;
+  --gray-placeholder: 162 162 162;
+  --gray: 142 139 143;
   --top-bar: linear-gradient(95.91deg, #665aef 6.04%, #fc364c 88.42%);
   --gray-bg: rgba(13, 13, 13, 0.5);
-  --search-bar-bg: #1f1f1f;
+  --search-bar-bg: 31 31 31;
 }
 @layer base {
   .h0 {

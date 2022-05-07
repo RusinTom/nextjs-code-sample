@@ -23,7 +23,7 @@ module.exports = {
         white: withOpacityValue('--white'),
         grayPlaceholder: withOpacityValue('--gray-placeholder'),
         gray: withOpacityValue('--gray'),
-        grayBg: withOpacityValue('--gray-bg'),
+        grayBg: 'var(--gray-bg)',
         searchBarBg: withOpacityValue('--gray-bg'),
         dark: '#222222',
       },
