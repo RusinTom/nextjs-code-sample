@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { SectionHeaderImage } from '@/components/SectionHeaderImage/SectionHeaderImage';
 import Seo from '@/components/Seo';
 
 const HomePage = () => {
@@ -7,13 +8,18 @@ const HomePage = () => {
     <>
       <Seo />
 
-      <main>
-        <section className='bg-white'>
-          <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
-            <h1 className='mt-4'>
-              Next.js + Tailwind CSS + TypeScript Starter
-            </h1>
-          </div>
+      <main
+        style={{
+          background: 'linear-gradient(0deg, #0D0D0D, #0D0D0D), #141417;',
+        }}
+      >
+        <section
+          className='min-h-screen pt-10'
+          style={{
+            background: 'var(--purple-gradient)',
+          }}
+        >
+          <SectionHeaderImage />
         </section>
       </main>
     </>

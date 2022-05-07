@@ -25,7 +25,6 @@ module.exports = {
         gray: withOpacityValue('--gray'),
         grayBg: 'var(--gray-bg)',
         searchBarBg: withOpacityValue('--search-bar-bg'),
-        dark: '#222222',
       },
       container: {
         center: true,
