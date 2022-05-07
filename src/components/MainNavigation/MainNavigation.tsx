@@ -11,7 +11,7 @@ const navigation: NavigationItem[] = [
 
 export const MainNavigation = () => {
   return (
-    <nav>
+    <nav className='flex items-center'>
       {navigation.map((item) => (
         <NavItem key={item.key} item={item} classes='mr-[14px] last:mr-0' />
       ))}

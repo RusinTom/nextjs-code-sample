@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LogoGray from '../../../assets/logo-gray.svg';
+import LogoGray from '../../../assets/svgs/logo-gray.svg';
 
 export const Footer = () => {
   return (

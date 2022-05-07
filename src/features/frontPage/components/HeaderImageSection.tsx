@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 
-export const SectionHeaderImage = () => {
+export const HeaderImageSection = () => {
   return (
-    <div className='relative m-auto h-[264px] w-[1400px] '>
+    <section className='relative m-auto h-[264px] w-[1400px] '>
       <div className='relative h-full overflow-hidden rounded'>
         <Image
           className='w-full object-contain'
@@ -16,6 +16,6 @@ export const SectionHeaderImage = () => {
       <div className='absolute -bottom-[63px] left-1/2 -translate-x-[63px]'>
         <Image src='/images/png/eye.png' alt='' width={149} height={149} />
       </div>
-    </div>
+    </section>
   );
 };

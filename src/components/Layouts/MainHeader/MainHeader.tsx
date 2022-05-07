@@ -4,7 +4,7 @@ import React from 'react';
 import { MainNavigation } from '@/components/MainNavigation/MainNavigation';
 import { SearchBar } from '@/components/SearchBar/SearchBar';
 
-import LogoWhite from '../../../assets/logo-white.svg';
+import LogoWhite from '../../../assets/svgs/logo-white.svg';
 
 export const MainHeader = () => {
   return (

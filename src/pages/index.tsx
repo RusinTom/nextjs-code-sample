@@ -1,25 +1,21 @@
 import * as React from 'react';
 
-import { SectionHeaderImage } from '@/components/SectionHeaderImage/SectionHeaderImage';
 import Seo from '@/components/Seo';
+
+import { HeaderImageSection } from '@/features/frontPage/components/HeaderImageSection';
+import { PageDescription } from '@/features/frontPage/components/PageDescription';
+import { PageLinksSection } from '@/features/frontPage/components/PageLinksSection';
 
 const HomePage = () => {
   return (
     <>
       <Seo />
 
-      <main
-        style={{
-          background: 'linear-gradient(0deg, #0D0D0D, #0D0D0D), #141417;',
-        }}
-      >
-        <section
-          className='min-h-screen pt-10'
-          style={{
-            background: 'var(--purple-gradient)',
-          }}
-        >
-          <SectionHeaderImage />
+      <main className='base-gradient'>
+        <section className='purple-gradient min-h-screen pt-10'>
+          <HeaderImageSection />
+          <PageDescription />
+          <PageLinksSection />
         </section>
       </main>
     </>

@@ -28,13 +28,14 @@
   --gray-bg: rgba(13, 13, 13, 0.5);
   --search-bar-bg: 31 31 31;
 }
+
 @layer base {
-  .focus-active {
-    @apply rounded-[10px] border-2 border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
+  .base-gradient {
+    background: linear-gradient(0deg, #0d0d0d, #0d0d0d), #141417;
   }
 
-  .nav-link-base {
-    @apply focus-active py-1 px-4 text-white hover:border-red;
+  .purple-gradient {
+    background: var(--purple-gradient);
   }
 
   .h0 {
@@ -43,7 +44,7 @@
 
   h1,
   .h1 {
-    @apply font-primary text-2xl font-bold md:text-4xl;
+    @apply font-primary text-[45px] font-extrabold leading-[61px] text-white;
   }
 
   h2,
@@ -63,11 +64,25 @@
 
   body,
   .p {
-    @apply font-primary text-sm md:text-base;
+    @apply font-primary text-sm font-normal leading-[19px] text-white;
   }
 
   a {
-    @apply text-[15px] font-extrabold leading-5;
+    @apply inline-block text-[15px] font-extrabold leading-5 text-white;
+  }
+}
+
+@layer components {
+  .focus-active {
+    @apply rounded-[10px] border-2 border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
+  }
+
+  .nav-link-base {
+    @apply focus-active py-1 px-4 text-white hover:border-red;
+  }
+
+  .base-link--contained {
+    @apply rounded-[5px] bg-grayBg py-[15px] px-[35px] hover:border-transparent hover:bg-black;
   }
 }
 
