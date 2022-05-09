@@ -12,8 +12,10 @@ interface NavItemProps {
 
 export const NavItem = ({ item, classes }: NavItemProps) => {
   return (
-    <Link href={item.url}>
-      <a className={clsxm('nav-link-base', classes)}>{item.label}</a>
-    </Link>
+    <li>
+      <Link href={item.url}>
+        <a className={clsxm('nav-link-base', classes)}>{item.label}</a>
+      </Link>
+    </li>
   );
 };
