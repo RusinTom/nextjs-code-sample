@@ -24,7 +24,7 @@ export const BaseLink = ({
     <Link href={url}>
       <a
         className={clsxm(
-          'nav-link-base mx-2.5',
+          'nav-link-base',
           Icon && 'inline-flex items-center',
           variant && BASE_LINK_VARIANT_ENUM[variant],
           classes

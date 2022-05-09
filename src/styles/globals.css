@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1c1c1c rgb(var(--black));
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(86, 86, 86, 0.5);
+  border-left: 2px solid rgb(var(--black));
+  border-right: 2px solid rgb(var(--black));
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c1c1c;
+  border: 1px solid #565656;
+
+  border-radius: 100px;
+}
+
 :root {
   --purple-gradient: linear-gradient(
     -164.26deg,
@@ -44,7 +66,7 @@
 
   h1,
   .h1 {
-    @apply font-primary text-[45px] font-extrabold leading-[61px] text-white;
+    @apply font-primary text-[45px] font-extrabold leading-[61px] text-white sm:text-[32px];
   }
 
   h2,
@@ -59,16 +81,16 @@
 
   h4,
   .h4 {
-    @apply font-primary text-base font-bold md:text-lg;
+    @apply font-primary text-base font-extrabold leading-[22px] md:text-lg;
   }
 
   body,
   .p {
-    @apply font-primary text-sm font-normal leading-[19px] text-white;
+    @apply font-primary text-sm font-normal leading-[19px] text-white sm:text-xs;
   }
 
   a {
-    @apply inline-block text-[15px] font-extrabold leading-5 text-white;
+    @apply inline-block text-[15px] font-extrabold leading-5 text-white transition-all;
   }
 }
 
@@ -78,11 +100,23 @@
   }
 
   .nav-link-base {
-    @apply focus-active py-1 px-4 text-white hover:border-red;
+    @apply focus-active mx-2.5 py-1 px-4 text-white hover:border-red;
   }
 
   .base-link--contained {
     @apply rounded-[5px] bg-grayBg py-[15px] px-[35px] hover:border-transparent hover:bg-black;
+  }
+
+  .base-link--inline {
+    @apply m-0 border-none p-0 text-sm font-normal  leading-[19px] hover:border-none hover:text-red focus:border-none active:border-none;
+  }
+
+  .mobile-menu {
+    @apply fixed top-0 right-0 z-20 w-64 -translate-y-full bg-gray transition-transform duration-300;
+  }
+
+  .mobile-menu--active {
+    @apply translate-y-0;
   }
 }
 
