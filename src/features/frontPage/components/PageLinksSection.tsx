@@ -16,6 +16,7 @@ export const PageLinksSection = () => {
         variant='contained'
         classes='mt-5'
       />
+
       <BaseLink
         label='Lorem ipsum'
         url='/'

@@ -1,4 +1,6 @@
+import { motion, useViewportScroll } from 'framer-motion';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 import { fakeBoxes } from '@/data/fakeData';
 
@@ -17,12 +19,29 @@ import { PageDescription } from '@/features/frontPage/components/PageDescription
 import { PageLinksSection } from '@/features/frontPage/components/PageLinksSection';
 
 const HomePage = () => {
+  const { scrollYProgress } = useViewportScroll();
+
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    return scrollYProgress.onChange((v) => setValue(v));
+  }, [scrollYProgress]);
+
   return (
     <>
       <Seo />
 
       <main className='base-gradient'>
-        <section className='purple-gradient min-h-screen pt-10 pb-[66px]'>
+        <motion.section
+          style={{
+            background: `linear-gradient( -164.26deg, rgba(46, 45, 102, 0.6) -2.5%, rgba(${
+              58 * (1 + value)
+            }, ${39 * (1 + value)}, ${
+              63 * (1 + value)
+            }, 0.6) 47.55%, #181818 90.7% )`,
+          }}
+          className='purple-gradient min-h-screen pt-10 pb-[66px] transition-all'
+        >
           <HeaderImageSection />
           <PageDescription />
           <PageLinksSection />
@@ -64,7 +83,6 @@ const HomePage = () => {
                     classes='my-3 w-[40%] sm:w-full'
                     Icon={<PadIcon className='mr-5 text-xl' />}
                   />
-
                   <BaseLink
                     label='@Lorem ipsum'
                     url='/'
@@ -103,7 +121,7 @@ const HomePage = () => {
               </Accordion>
             </div>
           </div>
-        </section>
+        </motion.section>
       </main>
     </>
   );
