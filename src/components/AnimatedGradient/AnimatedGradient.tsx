@@ -1,17 +1,14 @@
 import { motion, useViewportScroll } from 'framer-motion';
 import _ from 'lodash';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const AnimatedGradient = () => {
   const { scrollYProgress } = useViewportScroll();
 
   const [value, setValue] = useState(0);
 
-  useLayoutEffect(() => {
-    setValue(scrollYProgress.get());
-  }, [scrollYProgress]);
-
   useEffect(() => {
+    setValue(scrollYProgress.get());
     scrollYProgress.onChange(_.throttle((v) => setValue(v), 100));
   }, [scrollYProgress]);
 
