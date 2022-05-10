@@ -25,15 +25,17 @@ export const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
         )}
       >
         <div className='flex items-center justify-between bg-black px-2 py-4'>
-          <MobileLogo />
-          <button onClick={() => setIsOpen(false)}>X</button>
+          <MobileLogo nonFocusable={!isOpen} />
+          <button tabIndex={isOpen ? 0 : -1} onClick={() => setIsOpen(false)}>
+            X
+          </button>
         </div>
         <ul>
           {navigation.map((item) => (
-            <MobileMenuItem key={item.key} item={item} />
+            <MobileMenuItem key={item.key} item={item} nonFocusable={!isOpen} />
           ))}
         </ul>
-        <SearchBar classes='lg:flex lg:mt-4' />
+        <SearchBar nonFocusable={!isOpen} classes='lg:flex lg:mt-4' />
       </div>
     </>
   );

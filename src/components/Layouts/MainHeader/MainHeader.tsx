@@ -17,7 +17,7 @@ export const MainHeader = () => {
     <header>
       <div className='flex items-center justify-between bg-black px-10 pt-[26px] pb-[25px] sm:px-5'>
         <Link href='/'>
-          <a>
+          <a className='focus-active p-2 outline-none'>
             <LogoWhite className='h-[23px] w-[195px]' />
           </a>
         </Link>

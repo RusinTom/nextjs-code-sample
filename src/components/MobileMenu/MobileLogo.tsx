@@ -3,10 +3,14 @@ import React from 'react';
 
 import LogoWhite from '@/assets/svgs/logo-white.svg';
 
-export const MobileLogo = () => {
+interface MobileLogoProps {
+  nonFocusable?: boolean;
+}
+
+export const MobileLogo = ({ nonFocusable }: MobileLogoProps) => {
   return (
     <Link href='/'>
-      <a>
+      <a tabIndex={nonFocusable ? -1 : 0}>
         <LogoWhite className='h-[28px] w-[110px]' />
       </a>
     </Link>
