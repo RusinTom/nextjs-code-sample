@@ -7,7 +7,7 @@ module.exports = {
   reactStrictMode: true,
 
   images: {
-    domains: ['http://localhost:3000/'],
+    domains: ['http://localhost:3000'],
   },
 
   // SVGR

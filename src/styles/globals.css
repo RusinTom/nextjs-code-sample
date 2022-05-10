@@ -8,10 +8,20 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
+  background: rgba(86, 86, 86, 0.5);
+  border-left: 6px solid rgb(var(--black));
+  border-right: 6px solid rgb(var(--black));
+}
+
+.accordion ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.accordion ::-webkit-scrollbar-track {
   background: rgba(86, 86, 86, 0.5);
   border-left: 2px solid rgb(var(--black));
   border-right: 2px solid rgb(var(--black));
@@ -60,6 +70,10 @@ html {
     background: var(--purple-gradient);
   }
 
+  .z-negative {
+    z-index: -1;
+  }
+
   .h0 {
     @apply font-primary text-3xl font-bold md:text-5xl;
   }
@@ -96,7 +110,7 @@ html {
 
 @layer components {
   .focus-active {
-    @apply rounded-[10px] border-2 border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
+    @apply rounded-[10px] border-2  border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
   }
 
   .nav-link-base {

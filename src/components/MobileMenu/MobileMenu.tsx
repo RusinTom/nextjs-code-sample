@@ -1,13 +1,13 @@
-import Link from 'next/link';
 import React from 'react';
 
 import { clsxm } from '@/lib/clsxm';
 
 import { navigation } from '@/data/fakeData';
 
+import { Backdrop } from '@/components/MobileMenu/Backdrop';
+import { MobileLogo } from '@/components/MobileMenu/MobileLogo';
+import { MobileMenuItem } from '@/components/MobileMenu/MobileMenuItem';
 import { SearchBar } from '@/components/SearchBar/SearchBar';
-
-import LogoWhite from '@/assets/svgs/logo-white.svg';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -17,40 +17,25 @@ interface MobileMenuProps {
 export const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
   return (
     <>
+      <Backdrop active={isOpen} onClick={setIsOpen} />
       <div
         className={clsxm(
-          'fixed top-0 right-0 hidden h-full w-full bg-grayBg',
-          isOpen && 'backdrop z-10 block'
-        )}
-        onClick={() => setIsOpen(false)}
-      />
-      <div
-        className={clsxm(
-          'mobile-menu overflow-hidden rounded-bl-[10px]',
+          'mobile-menu overflow-hidden rounded-bl-[10px] bg-black p-4',
           isOpen && 'mobile-menu--active'
         )}
       >
         <div className='flex items-center justify-between bg-black px-2 py-4'>
-          <Link href='/'>
-            <a>
-              <LogoWhite className='h-[28px] w-[150px]' />
-            </a>
-          </Link>
-          <button onClick={() => setIsOpen(false)}>X</button>
+          <MobileLogo nonFocusable={!isOpen} />
+          <button tabIndex={isOpen ? 0 : -1} onClick={() => setIsOpen(false)}>
+            X
+          </button>
         </div>
-        <ul className=''>
+        <ul>
           {navigation.map((item) => (
-            <li className='active' key={item.key}>
-              <a
-                href={item.url}
-                className='block border-b-2 bg-black px-2 py-4  text-sm font-semibold text-white'
-              >
-                {item.label}
-              </a>
-            </li>
+            <MobileMenuItem key={item.key} item={item} nonFocusable={!isOpen} />
           ))}
         </ul>
-        <SearchBar classes='lg:flex' />
+        <SearchBar nonFocusable={!isOpen} classes='lg:flex lg:mt-4' />
       </div>
     </>
   );

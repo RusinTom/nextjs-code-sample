@@ -16,6 +16,7 @@ export const HeaderImageSection = () => {
           alt=''
           height={264}
           width={1400}
+          priority
         />
       </motion.div>
 
