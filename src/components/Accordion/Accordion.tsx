@@ -10,7 +10,9 @@ interface AccordionProps {
   helperText?: string;
   Icon?: React.ReactNode;
   maxContentHeight?: number;
-  children: React.ReactNode;
+  children:
+    | React.ReactNode
+    | (({ isAccordionOpen }: { isAccordionOpen: boolean }) => React.ReactNode);
   containerClasses?: string;
 }
 
@@ -22,7 +24,9 @@ export const Accordion: React.FC<AccordionProps> = ({
   children,
   containerClasses,
 }) => {
-  const { contentRef, toggleAccordion, handleKeyPress } = useAccordion();
+  const { contentRef, isAccordionOpen, toggleAccordion, handleKeyPress } =
+    useAccordion();
+
   return (
     <div className={clsxm('accordion w-full', containerClasses)}>
       <div className='rounded bg-grayBg pt-[30px] pl-[30px] pr-[25px]'>
@@ -51,7 +55,9 @@ export const Accordion: React.FC<AccordionProps> = ({
             className='overflow-auto'
             style={{ maxHeight: maxContentHeight }}
           >
-            {children}
+            {typeof children === 'function'
+              ? children({ isAccordionOpen })
+              : children}
           </div>
           <div className='h-[48px]' />
         </div>

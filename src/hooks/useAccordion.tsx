@@ -34,6 +34,7 @@ export const useAccordion = () => {
 
   return {
     contentRef,
+    isAccordionOpen,
     toggleAccordion,
     handleKeyPress,
   };

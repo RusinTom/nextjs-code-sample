@@ -11,6 +11,7 @@ interface BaseLinkProps {
   Icon?: React.ReactNode;
   variant?: BaseLinkVariant;
   classes?: string;
+  nonFocusable?: boolean;
 }
 
 export const BaseLink = ({
@@ -19,10 +20,12 @@ export const BaseLink = ({
   Icon,
   variant,
   classes,
+  nonFocusable,
 }: BaseLinkProps) => {
   return (
     <Link href={url}>
       <a
+        tabIndex={nonFocusable ? -1 : 0}
         className={clsxm(
           'nav-link-base',
           Icon && 'inline-flex items-center',
