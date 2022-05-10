@@ -14,6 +14,7 @@ export const CategoriesAccordion = () => {
       maxContentHeight={320}
       containerClasses='mb-6'
       Icon={<FourCirclesIcon className='mr-2.5' />}
+      helperText='Lorem ipsum dolor'
     >
       {({ isAccordionOpen }) => (
         <div className='grid grid-cols-3 gap-x-1.5 gap-y-2.5 pr-[20px] xl:grid-cols-2 xsm:grid-cols-1'>
