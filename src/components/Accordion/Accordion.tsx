@@ -22,13 +22,12 @@ export const Accordion: React.FC<AccordionProps> = ({
   children,
   containerClasses,
 }) => {
-  const { contentRef, toggleAccordion } = useAccordion();
-
+  const { contentRef, toggleAccordion, handleKeyPress } = useAccordion();
   return (
     <div className={clsxm('accordion w-full', containerClasses)}>
       <div className='rounded bg-grayBg pt-[30px] pl-[30px] pr-[25px]'>
         <div
-          className='mb-7 flex cursor-pointer items-center justify-between'
+          className='active:border-tansparent mb-7 flex cursor-pointer items-center justify-between'
           onClick={toggleAccordion}
         >
           <div className='flex items-center'>
@@ -36,7 +35,11 @@ export const Accordion: React.FC<AccordionProps> = ({
             <h4>{title}</h4>
             {helperText}
           </div>
-          <ArrowDown />
+          <ArrowDown
+            tabIndex={0}
+            onKeyPress={handleKeyPress}
+            className='focus-active h-6 w-6 p-1'
+          />
         </div>
         <div
           ref={contentRef}

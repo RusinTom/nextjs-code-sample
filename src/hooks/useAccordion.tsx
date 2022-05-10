@@ -26,8 +26,15 @@ export const useAccordion = () => {
     setIsAccordionOpen(!isAccordionOpen);
   };
 
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      toggleAccordion();
+    }
+  };
+
   return {
     contentRef,
     toggleAccordion,
+    handleKeyPress,
   };
 };
