@@ -60,6 +60,10 @@ html {
     background: var(--purple-gradient);
   }
 
+  .z-negative {
+    z-index: -1;
+  }
+
   .h0 {
     @apply font-primary text-3xl font-bold md:text-5xl;
   }
@@ -96,7 +100,7 @@ html {
 
 @layer components {
   .focus-active {
-    @apply rounded-[10px] border-2 border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
+    @apply rounded-[10px] border-2  border-transparent outline-none focus:border-2 focus:border-red active:border-2 active:border-red;
   }
 
   .nav-link-base {
