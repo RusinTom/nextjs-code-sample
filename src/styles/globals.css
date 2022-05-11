@@ -35,18 +35,16 @@ html {
 }
 
 :root {
+  /*Gradient properties to animate*/
+  --r: 58;
+  --g: 39;
+  --b: 63;
+
   --purple-gradient: linear-gradient(
     -164.26deg,
     rgba(46, 45, 102, 0.6) -2.5%,
     rgba(58, 39, 63, 0.6) 47.55%,
     #181818 90.7%
-  );
-
-  --custom-gradient: linear-gradient(
-    90deg,
-    rgba(46, 45, 102, 1) 60%,
-    rgba(58, 39, 63, 1) 60%,
-    rgba(24, 24, 24, 1) 100%
   );
 
   --red: 252 54 76;
@@ -67,7 +65,12 @@ html {
   }
 
   .purple-gradient {
-    background: var(--purple-gradient);
+    background: linear-gradient(
+      -164.26deg,
+      rgba(46, 45, 102, 0.6) -2.5%,
+      rgba(var(--r), var(--g), var(--b), 0.6) 47.55%,
+      #181818 90.7%
+    );
   }
 
   .z-negative {
