@@ -6,27 +6,35 @@ export const AnimatedGradient = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const getCssProperty = (
-      styleDeclaration: CSSStyleDeclaration,
-      property: string
-    ) => {
-      return +styleDeclaration.getPropertyValue(property) ?? 1;
+    const getCssProperty =
+      (styleDeclaration: CSSStyleDeclaration) => (property: string) => {
+        return +styleDeclaration.getPropertyValue(property) ?? 1;
+      };
+
+    const getMouseYProgress = (e: MouseEvent) => {
+      const documentHeight = document.documentElement.scrollHeight;
+      return e.pageY / documentHeight;
     };
 
     const changeGradientOnMouseMove = _.throttle((e: MouseEvent) => {
       if (ref.current) {
-        const documentHeight = document.documentElement.scrollHeight;
-        const mouseYProgress = e.pageY / documentHeight;
+        const animatedElement = ref.current;
+        const mouseYProgress = getMouseYProgress(e);
 
-        const documentStyles = getComputedStyle(document.documentElement);
+        const documentCSSStyleDeclaration = getComputedStyle(
+          document.documentElement
+        );
+        const getDocumentCSSProperty = getCssProperty(
+          documentCSSStyleDeclaration
+        );
 
-        const r = getCssProperty(documentStyles, '--r') * (1 + mouseYProgress);
-        const g = getCssProperty(documentStyles, '--g') * (1 + mouseYProgress);
-        const b = getCssProperty(documentStyles, '--b') * (1 + mouseYProgress);
+        const r = getDocumentCSSProperty('--r') * (1 + mouseYProgress);
+        const g = getDocumentCSSProperty('--g') * (1 + mouseYProgress);
+        const b = getDocumentCSSProperty('--b') * (1 + mouseYProgress);
 
-        ref.current.style.setProperty('--r', `${r}`);
-        ref.current.style.setProperty('--g', `${g}`);
-        ref.current.style.setProperty('--b', `${b}`);
+        animatedElement.style.setProperty('--r', `${r}`);
+        animatedElement.style.setProperty('--g', `${g}`);
+        animatedElement.style.setProperty('--b', `${b}`);
       }
     }, 50);
     document.addEventListener('mousemove', changeGradientOnMouseMove);
